@@ -100,8 +100,8 @@ class Item(Area):
         return self.transport.POST(url="/item/app/%d/filter/" % app_id, body=attributes,
                                    type="application/json", **kwargs)
 
-    def filter_by_view(self, app_id, view_id):
-        return self.transport.POST(url="/item/app/{}/filter/{}".format(app_id, view_id))
+    def filter_by_view(self, app_id, view_id, **kwargs):
+        return self.transport.POST(url="/item/app/{}/filter/{}".format(app_id, view_id), **kwargs)
 
     def find_all_by_external_id(self, app_id, external_id):
         return self.transport.GET(url='/item/app/%d/v2/?external_id=%r' % (app_id, external_id))
